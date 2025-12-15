@@ -1,0 +1,38 @@
+Algorithme Recherche_Binaire
+// Recherche binaire dans un tableau trie d'entiers
+Variables
+    N, i, debut, fin, milieu : Entier
+    T : Tableau[1..200] de Entier
+    x : Entier
+    trouve : Booleen
+Debut
+    Ecrire "Entrez le nombre d'elements (<=200) :"
+    Lire N
+    Ecrire "Entrez les elements tries (croissants) :"
+    Pour i <- 1 a N Faire
+        Ecrire "T[", i, "] : "
+        Lire T[i]
+    FinPour
+    Ecrire "Entrez la valeur a rechercher :"
+    Lire x
+    debut <- 1
+    fin <- N
+    trouve <- Faux
+    TantQue (debut <= fin) ET (trouve = Faux) Faire
+        milieu <- (debut + fin) / 2
+        Si T[milieu] = x Alors
+            trouve <- Vrai
+        Sinon
+            Si T[milieu] < x Alors
+                debut <- milieu + 1
+            Sinon
+                fin <- milieu - 1
+            FinSi
+        FinSi
+    FinTantQue
+    Si trouve Alors
+        Ecrire "Valeur trouvee a la position ", milieu
+    Sinon
+        Ecrire "Valeur non trouvee"
+    FinSi
+Fin

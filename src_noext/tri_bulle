@@ -1,0 +1,27 @@
+Algorithme Tri_Bulle
+// Tri a bulles (Bubble Sort) d'un tableau de reels
+Variables
+    N, i, j : Entier
+    T : Tableau[1..200] de Reel
+    temp : Reel
+Debut
+    Ecrire "Entrez le nombre d'elements (<=200) :"
+    Lire N
+    Pour i <- 1 a N Faire
+        Ecrire "T[", i, "] : "
+        Lire T[i]
+    FinPour
+    Pour i <- 1 a N-1 Faire
+        Pour j <- 1 a N-i Faire
+            Si T[j] > T[j+1] Alors
+                temp <- T[j]
+                T[j] <- T[j+1]
+                T[j+1] <- temp
+            FinSi
+        FinPour
+    FinPour
+    Ecrire "Tableau trie :"
+    Pour i <- 1 a N Faire
+        Ecrire T[i]
+    FinPour
+Fin

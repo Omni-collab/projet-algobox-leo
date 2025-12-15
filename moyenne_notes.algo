@@ -1,0 +1,32 @@
+Algorithme Moyenne_Notes
+// Calcul de la moyenne, minimum et maximum d'une liste de notes
+Variables
+    N, i : Entier
+    note, somme, moyenne, min, max : Reel
+    Notes : Tableau[1..200] de Reel
+Debut
+    Ecrire "Entrez le nombre de notes (<=200) :"
+    Lire N
+    somme <- 0
+    Pour i <- 1 a N Faire
+        Ecrire "Note ", i, " : "
+        Lire note
+        Notes[i] <- note
+        somme <- somme + note
+        Si i = 1 Alors
+            min <- note
+            max <- note
+        Sinon
+            Si note < min Alors
+                min <- note
+            FinSi
+            Si note > max Alors
+                max <- note
+            FinSi
+        FinSi
+    FinPour
+    moyenne <- somme / N
+    Ecrire "Moyenne = ", moyenne
+    Ecrire "Minimum = ", min
+    Ecrire "Maximum = ", max
+Fin

@@ -1,0 +1,64 @@
+Algorithme Tri_Fusion
+// Tri fusion (Merge Sort) d'un tableau de reels
+Variables
+    N, i : Entier
+    T : Tableau[1..200] de Reel
+Debut
+    Ecrire "Entrez le nombre d'elements (<=200) :"
+    Lire N
+    Pour i <- 1 a N Faire
+        Ecrire "T[", i, "] : "
+        Lire T[i]
+    FinPour
+    Appeler FusionSort(T, 1, N)
+    Ecrire "Tableau trie :"
+    Pour i <- 1 a N Faire
+        Ecrire T[i]
+    FinPour
+Fin
+
+Sous-Algorithme FusionSort(T : Tableau de Reel, gauche : Entier, droite : Entier)
+Variables
+    milieu : Entier
+Debut
+    Si gauche >= droite Alors
+        Retourner
+    FinSi
+    milieu <- (gauche + droite) / 2
+    Appeler FusionSort(T, gauche, milieu)
+    Appeler FusionSort(T, milieu + 1, droite)
+    Appeler Fusion(T, gauche, milieu, droite)
+Fin
+
+Sous-Algorithme Fusion(T : Tableau de Reel, gauche : Entier, milieu : Entier, droite : Entier)
+Variables
+    i, j, k : Entier
+    Aux : Tableau[1..200] de Reel
+Debut
+    i <- gauche
+    j <- milieu + 1
+    k <- gauche
+    TantQue (i <= milieu) ET (j <= droite) Faire
+        Si T[i] <= T[j] Alors
+            Aux[k] <- T[i]
+            i <- i + 1
+        Sinon
+            Aux[k] <- T[j]
+            j <- j + 1
+        FinSi
+        k <- k + 1
+    FinTantQue
+    TantQue i <= milieu Faire
+        Aux[k] <- T[i]
+        i <- i + 1
+        k <- k + 1
+    FinTantQue
+    TantQue j <= droite Faire
+        Aux[k] <- T[j]
+        j <- j + 1
+        k <- k + 1
+    FinTantQue
+    Pour k <- gauche a droite Faire
+        T[k] <- Aux[k]
+    FinPour
+Fin

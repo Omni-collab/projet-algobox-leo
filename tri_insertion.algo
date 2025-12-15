@@ -1,0 +1,27 @@
+Algorithme Tri_Insertion
+// Tri par insertion d'un tableau de reels
+Variables
+    N, i, j : Entier
+    cle : Reel
+    T : Tableau[1..200] de Reel
+Debut
+    Ecrire "Entrez le nombre d'elements (<=200) :"
+    Lire N
+    Pour i <- 1 a N Faire
+        Ecrire "T[", i, "] : "
+        Lire T[i]
+    FinPour
+    Pour i <- 2 a N Faire
+        cle <- T[i]
+        j <- i - 1
+        TantQue j >= 1 ET T[j] > cle Faire
+            T[j+1] <- T[j]
+            j <- j - 1
+        FinTantQue
+        T[j+1] <- cle
+    FinPour
+    Ecrire "Tableau trie :"
+    Pour i <- 1 a N Faire
+        Ecrire T[i]
+    FinPour
+Fin
